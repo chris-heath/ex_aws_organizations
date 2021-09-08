@@ -5,7 +5,7 @@ defmodule ExAws.Organizations.MixProject do
     [
       app: :ex_aws_organizations,
       version: "0.1.0",
-      elixir: "~> 1.11",
+      elixir: "~> 1.8.1",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -23,8 +23,8 @@ defmodule ExAws.Organizations.MixProject do
     [
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:hackney, ">= 0.0.0", only: [:dev, :test]},
-      {:poison, ">= 0.0.0", only: [:dev, :test]},
+      {:hackney, "~> 1.6", only: [:dev, :test]},
+      {:poison, "~> 3.1", only: [:dev, :test]},
       {:jason, "~> 1.1", optional: true},
       {:ex_aws, "~> 2.1.1"}
     ]
