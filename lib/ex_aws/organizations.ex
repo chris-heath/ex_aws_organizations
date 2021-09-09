@@ -35,11 +35,11 @@ defmodule ExAws.Organizations do
       |> Macro.camelize()
 
     JSON.new(
-      :secretsmanager,
+      :organizations,
       %{
         data: params,
         headers: [
-          {"x-amz-target", "secretsmanager.#{operation}"},
+          {"x-amz-target", "AWSOrganizationsV20161128.#{operation}"},
           {"content-type", "application/x-amz-json-1.1"}
         ]
       }
