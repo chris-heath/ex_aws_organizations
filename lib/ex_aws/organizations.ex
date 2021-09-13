@@ -10,9 +10,8 @@ defmodule ExAws.Organizations do
   #@version "2016-11-28"
 
   @type list_accounts_opts :: [
-    starting_token: binary,
-    page_size: integer,
-    max_items: integer
+    next_token: binary,
+    max_results: integer
   ]
   @spec list_accounts() :: ExAws.Operation.JSON.t()
   @spec list_accounts(opts :: list_accounts_opts) :: ExAws.Operation.JSON.t()
