@@ -7,12 +7,27 @@ defmodule ExAws.Organizations do
 
   alias ExAws.Operation.JSON
 
-  #@version "2016-11-28"
+  # @version "2016-11-28"
+
+  @type list_tags_for_resource_opts :: [
+          next_token: binary,
+          max_results: integer
+        ]
+  @spec list_tags_for_resource(resource_id :: binary) :: ExAws.Operation.JSON.t()
+  @spec list_tags_for_resource(resource_id :: binary, opts :: list_tags_for_resource_opts) ::
+          ExAws.Operation.JSON.t()
+  def list_tags_for_resource(resource_id, opts \\ []) do
+    query_params =
+      ([resource_id: resource_id] ++ opts)
+      |> normalize_opts()
+
+    request(:list_tags_for_resource, query_params)
+  end
 
   @type list_accounts_opts :: [
-    next_token: binary,
-    max_results: integer
-  ]
+          next_token: binary,
+          max_results: integer
+        ]
   @spec list_accounts() :: ExAws.Operation.JSON.t()
   @spec list_accounts(opts :: list_accounts_opts) :: ExAws.Operation.JSON.t()
   def list_accounts(opts \\ []) do
